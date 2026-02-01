@@ -3,7 +3,7 @@ import { ComponentType } from "react";
 interface Project {
   title: string;
   description: string;
-  href: string;
+  href: string | null;
   icon: ComponentType<{ className?: string }>;
   label: string;
 }
@@ -16,12 +16,17 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, featured = false }: ProjectCardProps) {
   const Icon = project.icon;
   
+  const CardWrapper = project.href ? 'a' : 'div';
+  const linkProps = project.href ? {
+    href: project.href,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  } : {};
+  
   return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative h-full w-full overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-xl card-glow block"
+    <CardWrapper
+      {...linkProps}
+      className={`group relative h-full w-full overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-xl card-glow block ${project.href ? 'cursor-pointer' : ''}`}
     >
       {/* Subtle gradient accent */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-2xl" />
@@ -45,23 +50,25 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
           </div>
         </div>
         
-        {/* Arrow icon */}
-        <div className="flex justify-end mt-2">
-          <svg
-            className="h-5 w-5 text-white/30 transition-all duration-300 group-hover:text-white/60 group-hover:translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </div>
+        {/* Arrow icon - only show if there's a link */}
+        {project.href && (
+          <div className="flex justify-end mt-2">
+            <svg
+              className="h-5 w-5 text-white/30 transition-all duration-300 group-hover:text-white/60 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </div>
+        )}
       </div>
-    </a>
+    </CardWrapper>
   );
 }
