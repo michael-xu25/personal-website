@@ -42,9 +42,10 @@ body {
 
 .mesh-gradient {
   background: 
-    radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.4) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(236, 72, 153, 0.3) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.2) 0px, transparent 50%);
+    radial-gradient(at 20% 20%, rgba(139, 92, 246, 0.7) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(236, 72, 153, 0.5) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(59, 130, 246, 0.35) 0px, transparent 60%),
+    radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.4) 0px, transparent 50%);
   background-size: 200% 200%;
   animation: mesh-shift 8s ease infinite;
 }
@@ -56,6 +57,34 @@ body {
 
 .card-glow:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 40px rgba(139, 92, 246, 0.25), 0 0 80px rgba(139, 92, 246, 0.08);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa, #818cf8, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ambient background glow */
+.ambient-glow {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.06) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Colored left border accent for sections */
+.section-accent {
+  border-left: 3px solid;
+  padding-left: 1.5rem;
 }

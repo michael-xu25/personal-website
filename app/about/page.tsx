@@ -10,8 +10,8 @@ export default function AboutPage() {
         />
 
         {/* Story Section */}
-        <section className="mb-16">
-          <h2 className="font-serif text-2xl font-medium text-white mb-6">
+        <section className="mb-16 pl-6 border-l-2 border-violet-500/50">
+          <h2 className="font-serif text-2xl font-medium text-violet-300 mb-6">
             My Journey
           </h2>
           <div className="space-y-6 text-white/70 leading-relaxed">
@@ -31,22 +31,16 @@ export default function AboutPage() {
               building block for one of the world{"'"}s largest AI systems.
             </p>
             <p>
-              In parallel, I co-founded a startup through Y Combinator{"'"}s Fellowship program, 
-              building an independent benchmarking platform for radiology AI. We received a $220k 
-              equity-free grant with a less than 1% acceptance rate. If things go well, I{"'"}m 
-              planning to take a leave from Brown in Fall 2026 to focus on it full-time.
-            </p>
-            <p>
               I{"'"}m currently a freshman at Brown University studying Applied Math and Computer 
-              Science, maintaining a 4.0 GPA while juggling research, a startup, and the occasional 
+              Science, maintaining a 4.0 GPA while juggling research and the occasional 
               game of competitive Catan.
             </p>
           </div>
         </section>
 
         {/* Interests Section */}
-        <section className="mb-16">
-          <h2 className="font-serif text-2xl font-medium text-white mb-6">
+        <section className="mb-16 pl-6 border-l-2 border-blue-500/50">
+          <h2 className="font-serif text-2xl font-medium text-blue-300 mb-6">
             Beyond the Lab
           </h2>
           <div className="space-y-6 text-white/70 leading-relaxed">
@@ -70,8 +64,8 @@ export default function AboutPage() {
         </section>
 
         {/* Values Section */}
-        <section className="mb-16">
-          <h2 className="font-serif text-2xl font-medium text-white mb-6">
+        <section className="mb-16 pl-6 border-l-2 border-rose-500/50">
+          <h2 className="font-serif text-2xl font-medium text-rose-300 mb-6">
             What Drives Me
           </h2>
           <div className="space-y-6 text-white/70 leading-relaxed">
@@ -94,27 +88,27 @@ export default function AboutPage() {
         </section>
 
         {/* Education Timeline */}
-        <section>
-          <h2 className="font-serif text-2xl font-medium text-white mb-6">
+        <section className="pl-6 border-l-2 border-cyan-500/50">
+          <h2 className="font-serif text-2xl font-medium text-cyan-300 mb-6">
             Education
           </h2>
           <div className="space-y-6">
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-emerald-500" />
+              <div className="flex-shrink-0 w-3 h-3 mt-1.5 rounded-full bg-violet-500 shadow-lg shadow-violet-500/50" />
               <div>
                 <h3 className="font-medium text-white">Brown University</h3>
                 <p className="text-sm text-white/50">B.Sc Applied Mathematics & Computer Science • 4.0 GPA • Class of 2029</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-white/30" />
+              <div className="flex-shrink-0 w-3 h-3 mt-1.5 rounded-full bg-blue-500/60" />
               <div>
                 <h3 className="font-medium text-white/70">The Taft School</h3>
                 <p className="text-sm text-white/50">High School • Watertown, CT • Class of 2025</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-white/30" />
+              <div className="flex-shrink-0 w-3 h-3 mt-1.5 rounded-full bg-cyan-500/40" />
               <div>
                 <h3 className="font-medium text-white/70">Shanghai American School</h3>
                 <p className="text-sm text-white/50">Middle School • Shanghai, China</p>

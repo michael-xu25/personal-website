@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/research", label: "Research" },
@@ -22,7 +23,7 @@ export default function Navbar() {
           {/* Logo/Name */}
           <Link
             href="/"
-            className="font-serif text-xl font-medium text-white hover:text-white/80 transition-colors"
+            className="font-serif text-xl font-medium gradient-text hover:opacity-80 transition-opacity"
           >
             Michael Xu
           </Link>
@@ -33,13 +34,16 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors ${
+                className={`relative text-sm transition-colors py-1 ${
                   pathname === link.href
-                    ? "text-white"
+                    ? "text-violet-300"
                     : "text-white/60 hover:text-white"
                 }`}
               >
                 {link.label}
+                {pathname === link.href && (
+                  <span className="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 to-blue-500 rounded-full" />
+                )}
               </Link>
             ))}
           </div>
@@ -73,7 +77,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-sm transition-colors ${
                     pathname === link.href
-                      ? "text-white"
+                      ? "text-violet-300"
                       : "text-white/60 hover:text-white"
                   }`}
                 >

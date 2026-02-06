@@ -28,8 +28,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#050505] text-white min-h-screen`}
       >
+        <div className="ambient-glow" />
         <Navbar />
-        <div className="pt-16">
+        <div className="relative z-10 pt-16">
           {children}
         </div>
       </body>

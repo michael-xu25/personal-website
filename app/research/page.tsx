@@ -13,7 +13,12 @@ const publications = [
     contribution:
       "Contributed to the model architecture design and experimental validation of the temporal masking strategy.",
     href: "https://deepspatial2024.github.io/papers/AquaSent-TMMAE.pdf",
-    color: "from-blue-500/20",
+    bg: "bg-blue-950/50",
+    border: "border-blue-400/30",
+    accent: "from-blue-500/40",
+    venueColor: "text-blue-300",
+    badgeBg: "bg-blue-500/25",
+    topBorder: "from-blue-500 via-blue-500/50 to-transparent",
   },
   {
     title: "CLE-SMOTE: Addressing Extreme Imbalanced Data Classification with Contrastive Learning-Enhanced SMOTE",
@@ -26,7 +31,12 @@ const publications = [
     contribution:
       "Developed the contrastive learning integration and conducted ablation studies on synthetic sample quality.",
     href: "https://openreview.net/forum?id=e641mv2xsf",
-    color: "from-purple-500/20",
+    bg: "bg-purple-950/50",
+    border: "border-purple-400/30",
+    accent: "from-purple-500/40",
+    venueColor: "text-purple-300",
+    badgeBg: "bg-purple-500/25",
+    topBorder: "from-purple-500 via-purple-500/50 to-transparent",
   },
 ];
 
@@ -46,17 +56,20 @@ export default function ResearchPage() {
               href={pub.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-xl p-8 card-glow"
+              className={`group block relative overflow-hidden rounded-3xl border ${pub.border} ${pub.bg} backdrop-blur-xl p-8 card-glow`}
             >
+              {/* Top accent line */}
+              <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${pub.topBorder}`} />
+
               {/* Gradient accent */}
-              <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${pub.color} to-transparent rounded-full blur-3xl`} />
+              <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${pub.accent} to-transparent rounded-full blur-3xl`} />
 
               <div className="relative z-10">
                 {/* Venue Badge */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10">
-                    <PaperIcon className="h-4 w-4 text-white/70" />
-                    <span className="text-sm font-medium text-white">
+                  <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full ${pub.badgeBg}`}>
+                    <PaperIcon className={`h-4 w-4 ${pub.venueColor}`} />
+                    <span className={`text-sm font-semibold ${pub.venueColor}`}>
                       {pub.venue}
                     </span>
                   </div>
@@ -77,7 +90,7 @@ export default function ResearchPage() {
 
                 {/* Abstract */}
                 <div className="mb-6">
-                  <h3 className="text-xs uppercase tracking-wider text-white/40 mb-2">
+                  <h3 className={`text-xs uppercase tracking-wider ${pub.venueColor}/60 mb-2`}>
                     Abstract
                   </h3>
                   <p className="text-white/60 leading-relaxed text-sm">
@@ -87,7 +100,7 @@ export default function ResearchPage() {
 
                 {/* Contribution */}
                 <div className="mb-6">
-                  <h3 className="text-xs uppercase tracking-wider text-white/40 mb-2">
+                  <h3 className={`text-xs uppercase tracking-wider ${pub.venueColor}/60 mb-2`}>
                     My Contribution
                   </h3>
                   <p className="text-white/60 leading-relaxed text-sm">
@@ -101,7 +114,7 @@ export default function ResearchPage() {
                 </p>
 
                 {/* Read Paper Link */}
-                <div className="flex items-center gap-2 mt-6 text-sm text-white/50 group-hover:text-white/70 transition-colors">
+                <div className={`flex items-center gap-2 mt-6 text-sm ${pub.venueColor} opacity-70 group-hover:opacity-100 transition-opacity`}>
                   <span>Read paper</span>
                   <svg
                     className="h-4 w-4 transition-transform group-hover:translate-x-1"

@@ -8,7 +8,7 @@ import { ChromeIcon, MicrophoneIcon, TrophyIcon, GoogleIcon, TvIcon } from "./ic
 const projects = [
   {
     title: "Google Research",
-    description: "External researcher developing Gemini/MedGemma's audio diagnostic capabilities with $150k GPU grant.",
+    description: "Student researcher developing Gemini/MedGemma's audio diagnostic capabilities with $150k grant in GCP compute credits.",
     href: null,
     icon: GoogleIcon,
     label: "Research",

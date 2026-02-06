@@ -1,5 +1,5 @@
 import PageHeader from "../components/PageHeader";
-import { GoogleIcon, MicrophoneIcon, ChromeIcon, ChartIcon } from "../components/hero/icons";
+import { GoogleIcon, MicrophoneIcon, ChromeIcon } from "../components/hero/icons";
 
 const projects = [
   {
@@ -15,6 +15,14 @@ const projects = [
     icon: GoogleIcon,
     label: "Research • 2025 – Present",
     href: null,
+    bg: "bg-violet-950/50",
+    border: "border-violet-400/30",
+    accent: "from-violet-500/40",
+    iconBg: "bg-violet-500/25",
+    iconColor: "text-violet-300",
+    dotColor: "bg-violet-400",
+    arrowColor: "text-violet-300",
+    topBorder: "from-violet-500 via-violet-500/50 to-transparent",
   },
   {
     title: "TB Cough Diagnosis (SCOMAE)",
@@ -29,20 +37,14 @@ const projects = [
     icon: MicrophoneIcon,
     label: "ISEF 2024 • Grand Award",
     href: "https://isef.net/project/robo036t-diagnosing-tuberculosis-from-cough-acoustics",
-  },
-  {
-    title: "YC Radiology AI Benchmarking",
-    description:
-      "Co-founded a startup building an independent benchmarking platform for radiology AI through Y Combinator's Fellowship program.",
-    details: [
-      "Received $220k equity-free grant (40k cash, 180k compute credits)",
-      "Less than 1% acceptance rate (30-50 given out per year)",
-      "More exclusive than YC's main batch",
-      "Planning leave from Brown in Fall 2026 if traction continues",
-    ],
-    icon: ChartIcon,
-    label: "Y Combinator Fellowship • 2025",
-    href: null,
+    bg: "bg-rose-950/50",
+    border: "border-rose-400/30",
+    accent: "from-rose-500/40",
+    iconBg: "bg-rose-500/25",
+    iconColor: "text-rose-300",
+    dotColor: "bg-rose-400",
+    arrowColor: "text-rose-300",
+    topBorder: "from-rose-500 via-rose-500/50 to-transparent",
   },
   {
     title: "Brown CAB Schedule Exporter",
@@ -57,6 +59,14 @@ const projects = [
     icon: ChromeIcon,
     label: "Chrome Extension • 2026",
     href: "https://chromewebstore.google.com/detail/brown-cab-schedule-export/hpfadilcgdepmpaechlafaidlodaegok",
+    bg: "bg-cyan-950/50",
+    border: "border-cyan-400/30",
+    accent: "from-cyan-500/40",
+    iconBg: "bg-cyan-500/25",
+    iconColor: "text-cyan-300",
+    dotColor: "bg-cyan-400",
+    arrowColor: "text-cyan-300",
+    topBorder: "from-cyan-500 via-cyan-500/50 to-transparent",
   },
 ];
 
@@ -81,27 +91,30 @@ export default function ProjectsPage() {
               <Wrapper
                 key={index}
                 {...wrapperProps}
-                className={`group relative overflow-hidden rounded-3xl border border-white/20 bg-white/5 backdrop-blur-xl p-8 card-glow ${
+                className={`group relative overflow-hidden rounded-3xl border ${project.border} ${project.bg} backdrop-blur-xl p-8 card-glow ${
                   project.href ? "cursor-pointer" : ""
                 }`}
               >
+                {/* Top accent line */}
+                <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${project.topBorder}`} />
+                
                 {/* Gradient accent */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-3xl" />
+                <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${project.accent} to-transparent rounded-full blur-3xl`} />
 
                 <div className="relative z-10">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-xl bg-white/10">
-                        <Icon className="h-5 w-5 text-white/70" />
+                      <div className={`p-2 rounded-xl ${project.iconBg}`}>
+                        <Icon className={`h-5 w-5 ${project.iconColor}`} />
                       </div>
-                      <span className="text-xs text-white/50 uppercase tracking-wider">
+                      <span className={`text-xs uppercase tracking-wider ${project.iconColor}/80`}>
                         {project.label}
                       </span>
                     </div>
                     {project.href && (
                       <svg
-                        className="h-5 w-5 text-white/30 transition-all duration-300 group-hover:text-white/60 group-hover:translate-x-1"
+                        className={`h-5 w-5 ${project.arrowColor}/50 transition-all duration-300 group-hover:${project.arrowColor} group-hover:translate-x-1`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -128,7 +141,7 @@ export default function ProjectsPage() {
                   <ul className="space-y-2">
                     {project.details.map((detail, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-white/50">
-                        <div className="flex-shrink-0 w-1.5 h-1.5 mt-1.5 rounded-full bg-white/30" />
+                        <div className={`flex-shrink-0 w-1.5 h-1.5 mt-1.5 rounded-full ${project.dotColor}`} />
                         {detail}
                       </li>
                     ))}
